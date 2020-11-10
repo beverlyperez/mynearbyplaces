@@ -2,8 +2,7 @@ import React from 'react';
 import {
   BrowserRouter as Router, 
   Switch, 
-  Route,
-  BrowserRouter
+  Route
 } from "react-router-dom";
 import Homepage from './components/Homepage';
 import Login from './components/Login';
@@ -14,7 +13,7 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          weird<Homepage />
+          <Homepage />
         </Route>
         <Route path="/login">
           <Login />
