@@ -43,7 +43,7 @@ class Login extends React.Component {
                         type="text" 
                         name="username"
                         value={this.state.username} 
-                        onChange={this.handleChange}
+                        onChange={this.onInputChange}
                     ></input>
                     <button className="loginButton" type="submit">Login</button>                
                     

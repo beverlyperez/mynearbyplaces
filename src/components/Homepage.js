@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Website.css';
 
-class HomePage extends React.Component {
+class Homepage extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -60,5 +60,5 @@ class HomePage extends React.Component {
 
 }
 
-export default HomePage;
+export default Homepage;
 
