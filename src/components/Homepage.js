@@ -10,8 +10,6 @@ class HomePage extends React.Component {
         };
 
     }
-
- ]
     
     onSubmit = (currentState) => {
         var amountCorrect = 0;          
