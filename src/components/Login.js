@@ -40,11 +40,11 @@ class Login extends React.Component {
                 <p>!</p>
 
                 </div>
-                <HomePage />
+                <p>pls help</p>
             </div>
 
         );
-        }
+    }
 }
 
 export default Login;
