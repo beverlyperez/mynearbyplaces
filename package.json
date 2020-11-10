@@ -1,6 +1,6 @@
 {
   "name": "mynearbyplaces",
-  "version": "0.1.0",
+  "version": "0.1.0", 
   "homepage": "https://beverlyperez.github.io/mynearbyplaces",
   "private": true,
   "dependencies": {
