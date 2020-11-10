@@ -6,22 +6,19 @@ class Login extends React.Component {
         super(props);
         this.state = {
             username: '',
-            showHomePage: false,
-            signedIn: false
+            authenticated: false,
         };
 
     }
 
     onSubmit = (event) => {
         if(this.state.username.trim().length > 0){
-            this.setState({signedIn: true});
+            this.setState({authenticated: true});
         }
         event.preventDefault();
-        
-
     }
     
-    handleChange = (event) =>{
+    onInputChange = (event) =>{
         const value = event.target.value;
         const name = event.target.name;
         this.setState({
@@ -32,38 +29,26 @@ class Login extends React.Component {
   
 
     render(){
-        if((!this.state.signedIn) && (!this.state.showHomePage)){
-            return (
-                <div>
-                    <form className="onlyForm" onSubmit={this.onSubmit}>
-                        <label>Username:</label>
-                        <input 
-                            type="text" 
-                            name="username"
-                            value={this.state.username} 
-                            onChange={this.handleChange}
-                        ></input>
-                        <button className="loginButton" type="submit">Login</button>                
-                        
-                    </form>
-                    
-                </div>
-    
-            );
-
-        }
         return (
             <div>
-                <div className="greeting">
-                <p>Welcome  </p>
-                <p>{this.state.username}</p>  
-                <p>!</p>
-
-                </div>
-                <HomePage />
+                <form className="onlyForm" onSubmit={this.onSubmit}>
+                    <label>Username:</label>
+                    <input 
+                        type="text" 
+                        name="username"
+                        value={this.state.username} 
+                        onChange={this.handleChange}
+                    ></input>
+                    <button className="loginButton" type="submit">Login</button>                
+                    
+                </form>
+                
             </div>
 
         );
+
+    
+    
     }
 
 }
