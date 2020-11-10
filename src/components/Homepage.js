@@ -11,15 +11,7 @@ class HomePage extends React.Component {
 
     }
 
-    activateStateC = (event) => {
-        if(!this.state.quizCnCart){
-            this.setState({quizCnCart: true});
-            this.setState({results: false});
-
-        }
-        event.preventDefault();
-    
-    }
+ ]
     
     onSubmit = (currentState) => {
         var amountCorrect = 0;          
@@ -33,19 +25,6 @@ class HomePage extends React.Component {
             }
             
         }
-
-        this.setState({amountC: amountCorrect});
-        console.log(this.state.amountC + " this is the amount correct");
-        if(currentState == "cartoons"){
-            this.setState({quizCnCart: false});
-        }
-        else if(currentState == "videog"){
-            this.setState({quizVideoG: false});
-        }
-        else if(currentState == "halloween"){
-            this.setState({quizHall: false});
-        }
-        this.setState({results: true});
 
     }
 
