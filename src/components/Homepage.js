@@ -35,8 +35,9 @@ class HomePage extends React.Component {
         
         
             return (
-                <div className="CNQ">
-                    <h1>Which cartoon show from Cartoon Network, does the picture show?</h1>
+                <div className="search">
+                    <h1>Search nearby places</h1>
+                    <input type="text" className="input" placeholder="Search..." />
                     <form id="quiz">
                         
                         <input id="a1" type="radio" name="q1" value="wrong"/>
