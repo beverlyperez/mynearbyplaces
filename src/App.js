@@ -5,7 +5,7 @@ import {
   Route,
   BrowserRouter
 } from "react-router-dom";
-import Home from './components/Homepage';
+import Homepage from './components/Homepage';
 import Login from './components/Login';
 import './App.css';
 
@@ -14,7 +14,7 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Homepage />
         </Route>
         <Route exact path="/login">
           <Login />

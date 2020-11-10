@@ -1,5 +1,6 @@
 import React from 'react';
 import HomePage from './HomePage';
+import { Redirect } from 'react-router-dom';
 import './Website.css';
 class Login extends React.Component {
     constructor(props){
@@ -29,6 +30,12 @@ class Login extends React.Component {
   
 
     render(){
+        let from = {pathname: '/', state: {user: this.state.username}}
+
+        if(this.state.authenticated){
+            return(<Redirect to={from} />);
+        }
+        else{
         return (
             <div>
                 <form className="onlyForm" onSubmit={this.onSubmit}>
@@ -46,7 +53,7 @@ class Login extends React.Component {
             </div>
 
         );
-
+        }
     
     
     }
