@@ -31,26 +31,7 @@ class Login extends React.Component {
   
 
     render(){
-        if((!this.state.signedIn) && (!this.state.showHomePage)){
-            return (
-                <div>
-                    <form className="onlyForm" onSubmit={this.onSubmit}>
-                        <label>Username:</label>
-                        <input 
-                            type="text" 
-                            name="username"
-                            value={this.state.username} 
-                            onChange={this.handleChange}
-                        ></input>
-                        <button className="loginButton" type="submit">Login</button>                
-                        
-                    </form>
-                    
-                </div>
-    
-            );
-
-        }
+        
         return (
             <div>
                 <div className="greeting">
@@ -63,8 +44,7 @@ class Login extends React.Component {
             </div>
 
         );
-    }
-
+        }
 }
 
 export default Login;
