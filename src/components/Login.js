@@ -40,7 +40,7 @@ class Login extends React.Component {
                 <p>!</p>
 
                 </div>
-                <p>pls help</p>
+                <HomePage/>
             </div>
 
         );
