@@ -50,15 +50,15 @@ class HomePage extends React.Component {
     }
 
     render(){
-        
-        <div>
-            <p>My Nearby Places</p>
-            <div className="loginButton">
-                {this.state.authenticated ? this.state.username : <Link to='/login'>Login</Link>}
+        return (
+            <div>
+                <p>My Nearby Places</p>
+                <div className="loginButton">
+                    {this.state.authenticated ? this.state.username : <Link to='/login'>Login</Link>}
+                </div>
+                
             </div>
-            
-        </div>
-        
+        );
 
     }
 
