@@ -11,16 +11,9 @@ import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/">
+    <div>
           <Homepage />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-      </Switch>
-    </BrowserRouter>
+        </div>
     
   );
 }
