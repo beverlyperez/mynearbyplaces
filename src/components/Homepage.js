@@ -4,31 +4,51 @@ class HomePage extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            quizCnCart: false,
-            quizHall: false,
-            quizVideoG: false, 
-            results: false,
-            amountC: 0
+            latitude: 0,
+            longitude: 0,
+            
         };
 
     }
    
-
+    componentDidMount() {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          console.log("Latitude is :", position.coords.latitude);
+          console.log("Longitude is :", position.coords.longitude);
+          this.setState({latitude: position.coords.latitude});
+          this.setState({longitude: position.coords.longitude});
+        });
+        
+      }
    
     
-    onSubmit = (currentState) => {
+    onSubmit = () => {
         var amountCorrect = 0;          
-        for(var i = 1; i <= 6; i++) {
-            var radios = document.getElementsByName('q'+i);
-            for(var j = 0; j < radios.length; j++) {
-                var radio = radios[j];
-                if(radio.value == "correct" && radio.checked) {
-                    amountCorrect++;
-                }
-            }
-            
-        }
+        
+    }
 
+    handleChange(e) {
+        let currentList = [];
+        let newList = [];
+
+        if (e.target.value !== "") {
+        currentList = this.props.items;
+
+                
+        newList = currentList.filter(item => {
+
+            const lc = item.toLowerCase();
+
+            const filter = e.target.value.toLowerCase();
+                    
+            return lc.includes(filter);
+        });
+        } else {
+        newList = this.props.items;
+        }
+        this.setState({
+        filtered: newList
+        });
     }
 
     render(){
@@ -38,35 +58,10 @@ class HomePage extends React.Component {
                 <div className="search">
                     <h1>Search nearby places</h1>
                     <input type="text" className="input" placeholder="Search..." />
-                    <form id="quiz">
+
+                    <form id="addNew">
+                        <input type="text" placeholder="Add new place"/>
                         
-                        <input id="a1" type="radio" name="q1" value="wrong"/>
-                        <label for="a1">Billy and Mandy</label><br></br>
-                        <input id="a2" type="radio" name="q1" value="correct"/>
-                        <label for="a2">Codename: Kids Next Door</label><br></br>
-                        <input id="a3" type="radio" name="q1" value="wrong"/>
-                        <label for="a3">Power Puff Girls</label><br></br>
-                        <input id="a4" type="radio" name="q1" value="wrong"/>
-                        <label for="a4">Drake and Josh</label><br></br><br></br><br></br>
-
-                        <input id="a5" type="radio" name="q2" value="wrong"/> 
-                        <label for="a5">The Heroes of Townsville</label><br></br>
-                        <input id="a6" type="radio" name="q2" value="wrong"/>
-                        <label for="a6">Supers</label><br></br>
-                        <input id="a7" type="radio" name="q2" value="wrong"/>
-                        <label for="a7">Patrick</label><br></br>
-                        <input id="a8" type="radio" name="q2" value="correct"/>
-                        <label for="a8">Power Puff Girls</label><br></br><br></br><br></br>
-
-                        <input id="a9" type="radio" name="q3" value="correct"/>
-                        <label for="a9">Grim Adventures of Billy and Mandy</label><br></br>
-                        <input id="a10" type="radio" name="q3" value="wrong"/>
-                        <label for="a10"> Family Guy</label><br></br>
-                        <input id="a11" type="radio" name="q3" value="wrong"/>
-                        <label for="a11">Amanda Show</label><br></br>
-                        <input id="a12" type="radio" name="q3" value="wrong"/>
-                        <label for="a12">Shiny Teeth</label><br></br><br></br><br></br>
-
                     </form>
                     <button className="subButton" onClick={this.onSubmit}>Submit</button>     <br></br><br></br>
 
