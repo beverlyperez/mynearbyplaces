@@ -1,5 +1,4 @@
 import React from 'react';
-import './homePage.css';
 import cherryblossom from './images/cherryblossom.png';
 import daffodil from './images/daffodil.png';
 import daisy from './images/daisy.jpg';

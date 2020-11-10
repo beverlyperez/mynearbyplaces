@@ -1,6 +1,5 @@
 import React from 'react';
 import HomePage from './HomePage';
-import './homePage.css';
 class Login extends React.Component {
     constructor(props){
         super(props);
