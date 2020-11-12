@@ -6,7 +6,8 @@ class HomePage extends React.Component {
         this.state = {
             latitude: 0,
             longitude: 0,
-            
+            list: [],
+            ratings: 0
         };
 
     }
@@ -23,15 +24,16 @@ class HomePage extends React.Component {
    
     
     onSubmit = () => {
-        var amountCorrect = 0;          
-        
+      //Add the item to the list
+      
+      
     }
 
-    handleChange(e) {
+    handleChange() {
         let currentList = [];
         let newList = [];
 
-        if (e.target.value !== "") {
+        if (document.getElementsByClassName.name !== "") {
         currentList = this.props.items;
 
                 
@@ -39,7 +41,7 @@ class HomePage extends React.Component {
 
             const lc = item.toLowerCase();
 
-            const filter = e.target.value.toLowerCase();
+            const filter = document.getElementsByClassName.name.toLowerCase();
                     
             return lc.includes(filter);
         });
@@ -57,22 +59,18 @@ class HomePage extends React.Component {
             return (
                 <div className="search">
                     <h1>Search nearby places</h1>
-                    <input type="text" className="input" placeholder="Search..." />
+                    <input type="text" onChange={this.handleChange} className="checkFor" placeholder="Search..." />
 
                     <form id="addNew">
                         <input type="text" placeholder="Add new place"/>
-                        
+                      
                     </form>
-                    <button className="subButton" onClick={this.onSubmit}>Submit</button>     <br></br><br></br>
+                    <button className="subButton" onClick={this.onSubmit}>Submit</button> <br></br><br></br>
 
                  
                     
                 </div>
             );
-       
-        
-        
-        
 
     }
 
