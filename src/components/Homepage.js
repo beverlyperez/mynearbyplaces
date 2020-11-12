@@ -54,23 +54,24 @@ class HomePage extends React.Component {
     }
 
     render(){
-        
-        
-            return (
-                <div className="search">
-                    <h1>Search nearby places</h1>
-                    <input type="text" onChange={this.handleChange} className="checkFor" placeholder="Search..." />
+      return (
+          <div className="search">
+              <h1>Search nearby places</h1>
+              <input type="text" onChange={this.handleChange} className="checkFor" placeholder="Search..." />
 
-                    <form id="addNew">
-                        <input type="text" placeholder="Add new place"/>
-                      
-                    </form>
-                    <button className="subButton" onClick={this.onSubmit}>Submit</button> <br></br><br></br>
+              <form id="addNew">
+                  <input type="text" id="placeName" placeholder="Add new places' name ..."/>
+                  <input type="text" id="ratings" placeholder="/10 stars"/>
+                  <input type="text" id="lat" placeholder="Places' latitude"/>
+                  <input type="text" id="long" placeholder="Places longtitude"/>
 
-                 
-                    
-                </div>
-            );
+              </form>
+              <button className="subButton" onClick={this.onSubmit}>Submit</button> <br></br><br></br>
+
+            
+              
+          </div>
+      );
 
     }
 
