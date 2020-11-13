@@ -1,49 +1,57 @@
 import React from 'react';
-import HomePage from './Homepage';
+import { Redirect } from 'react-router-dom';
+
 class Login extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             username: '',
-            showHomePage: false,
-            signedIn: false
+            authenticated: false
+
         };
 
     }
 
     onSubmit = (event) => {
-        if(this.state.username.trim().length > 0){
-            this.setState({signedIn: true});
+        if (this.state.username.trim().length > 0) {
+            this.setState({ authenticated: true });
         }
         event.preventDefault();
-        
-
     }
-    
-    handleChange = (event) =>{
+
+    onInputChange = (event) => {
         const value = event.target.value;
         const name = event.target.name;
-        this.setState({
-            [name]: value
-        });
-
+        this.setState({ [name]: value });
     }
-  
 
-    render(){
-        
+
+    render() {
+        let from = { pathname: '/', state: { user: this.state.username } };
+
+        if (this.state.authenticated) {
+            return (
+                <Redirect to={from} />
+            );
+
+        }
+
         return (
             <div>
-                <div className="greeting">
-                <p>Welcome  </p>
-                <p>{this.state.username}</p>  
-                <p>!</p>
-
-                </div>
-                <HomePage/>
+                <form onSubmit={this.onSubmit}>
+                    <lable>Username:</lable>
+                    <input
+                        type="text"
+                        name="username"
+                        value={this.state.username}
+                        onChange={this.onInputChnage}
+                    ></input>
+                    <button type="submit">Login</button>
+                </form>
             </div>
-
         );
+
+
     }
 }
 

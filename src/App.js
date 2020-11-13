@@ -8,7 +8,7 @@ import {
   Route
 } from "react-router-dom";
 import Place from './components/Place';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
