@@ -7,7 +7,8 @@ class HomePage extends React.Component {
     super(props);
     this.state = {
       username: '',
-
+      searchN: '',
+      filtered: []
     };
 
   }
@@ -23,18 +24,23 @@ class HomePage extends React.Component {
   }
 
 
-  handleChange = () => {
-    let currentList = [];
+  handleChange = (event) => {
+    const value = event.target.value;
+        const name = event.target.name;
+        this.setState({
+            [name]: value
+        });
+    let currentList = server.getAllPlaces;
     let newList = [];
 
-    if (document.getElementsByClassName.name !== "") {
+    if (event.target.name !== "") {
       currentList = server.getAllPlaces;
 
       newList = currentList.filter(item => {
 
         const lc = item.toLowerCase();
 
-        const filter = document.getElementsByClassName.name.toLowerCase();
+        const filter = event.target.name.toLowerCase();
 
         return lc.includes(filter);
       });
@@ -68,8 +74,8 @@ class HomePage extends React.Component {
           </div>
         </div>
         <h1>Search nearby places</h1>
-        <input type="text" onChange={this.handleChange} className="checkFor" placeholder="Search..." />
-        <p>{server.getAllPlaces}</p>
+        <input type="text" onChange={this.handleChange} name="searchN" value={this.state.searchN} placeholder="Search..." />
+        <p name="filtered" value={this.state.filtered}></p>
         <br></br>
         <Link to='/place'>Add New Place</Link>
 

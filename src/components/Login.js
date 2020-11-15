@@ -44,7 +44,7 @@ class Login extends React.Component {
                         type="text"
                         name="username"
                         value={this.state.username}
-                        onChange={this.onInputChnage}
+                        onChange={this.onInputChange}
                     ></input>
                     <button type="submit">Login</button>
                 </form>

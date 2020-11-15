@@ -4,13 +4,14 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 import server from '../serverInterface/server';
 
 class Place extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: "",
+            title: "",
             city: "",
             state: "",
             rating: 0,
@@ -19,7 +20,7 @@ class Place extends React.Component {
     }
 
     handleAddPlace = (event) => {
-        server.addPlace(this.state.name, this.state.city, this.state.state, this.state.rating);
+        server.addPlace(this.state.title, this.state.city, this.state.state, this.state.rating, this.state.rev);
         event.preventDefault();
 
 
@@ -39,20 +40,20 @@ class Place extends React.Component {
                     <Form>
                         <Form.Group controlId="formBasicName">
                             <Form.Label>Name</Form.Label>
-                            <Form.Control type="text" placeholder="Enter name of place" value={this.state.name}
-                                onChange={this.onInputChange} />
+                            <Form.Control type="text" name="title" placeholder="Enter name of place" value={this.state.title}
+                             onChange={this.onInputChange} />
 
                         </Form.Group>
 
                         <Form.Group controlId="formBasicCity">
                             <Form.Label>City</Form.Label>
-                            <Form.Control type="text" placeholder="City of place" value={this.state.city}
+                            <Form.Control type="text" name="city" placeholder="City of place" value={this.state.city}
                                 onChange={this.onInputChange} />
                         </Form.Group>
                         <Form.Group controlId="formBasicState">
                             <Form.Label>State</Form.Label>
 
-                            <Form.Control type="text" placeholder="State of place" value={this.state.state}
+                            <Form.Control type="text"name="state" placeholder="State of place" value={this.state.state}
                                 onChange={this.onInputChange} />
                         </Form.Group>
                             <Form.Group as={Row} value={this.state.rating} onChange={this.onInputChange}>
@@ -95,12 +96,14 @@ class Place extends React.Component {
                             <Form.Group controlId="formBasicReview">
                             <Form.Label>Review:</Form.Label>
 
-                            <Form.Control type="text" placeholder="Your thoughts on this place" value={this.state.rev}
+                            <Form.Control type="text" name="rev" placeholder="Your thoughts on this place" value={this.state.rev}
                                 onChange={this.onInputChange} />
                         </Form.Group>
                         <Button variant="primary" type="submit" onClick={this.handleAddPlace}>
                             Add place
                          </Button>
+                         <br></br>
+                         <Link id="returnHome" to='/'>Go back</Link>
                     </Form></Col>
                 </Row>
             </Container>
