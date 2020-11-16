@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import server from '../serverInterface/server';
-
+import './Website.css';
 class Place extends React.Component {
     constructor(props) {
         super(props);

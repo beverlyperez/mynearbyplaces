@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import server from '../serverInterface/server';
-
+import './Website.css';
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
@@ -73,12 +73,13 @@ class HomePage extends React.Component {
               : <Link to='/login'>Login</Link>}
           </div>
         </div>
-        <h1>Search nearby places</h1>
-        <input type="text" onChange={this.handleChange} name="searchN" value={this.state.searchN} placeholder="Search..." />
+        <h1 id="titleOfSearch">Search nearby places</h1>
+        <input className=""type="text" onChange={this.handleChange} name="searchN" value={this.state.searchN} placeholder="Search..." />
         <p name="filtered" value={this.state.filtered}></p>
         <br></br>
-        <Link to='/place'>Add New Place</Link>
-
+        <div id="newPlaceButton">
+           <Link to='/place'>Add New Place</Link>
+        </div>
 
       </div>
     );
